@@ -1,0 +1,7 @@
+:root {
+    --primary-color: hsl(235, 21%, 11%);
+    --header-background: url('../IMAGES/bg-desktop-dark.jpg');
+    --text-color: rgb(255, 255, 255);
+    --element-background-color:  hsl(235, 24%, 19%);
+    --linear-gradient: linear-gradient(to right,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}

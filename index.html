@@ -1,27 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.google.com/specimen/Josefin+Sans" rel="stylesheet">
+
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="CSS/universal.css">
+  <link rel="stylesheet" href="CSS/dark-theme.css">
+  <link rel="stylesheet" href="CSS/index.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
   <title>Frontend Mentor | Todo app</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
+  <div id="app">
+    <div class="header-container">
+
+      <div class="header-container-internal-container">
+        <div class="header-container--top">
+          <h1 class="todo-title">TODO</h1>
+  
+          <button class="theme-toggle-button">
+            <img src="IMAGES/icon-sun.svg" alt="" class="theme-toggle-button--icon">
+          </button>
+        </div>
+  
+        <div class="input-container">
+          <label for="" class="do-undo-task-button-container">
+            <input type="checkbox" name="ola" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator"></div>
+          </label>
+          
+          <input type="text" class="new-task-input-container" placeholder="New task">
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <div class="activity-container">
+      <div v-if="activeTab == 'all'" class="task-container all-task-container">
+        <div v-for="task in taskList" class="task-element-container">
+          <label for="" class="do-undo-task-button-container">
+            <input type="checkbox" name="" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator"></div>
+          </label>
+          
+          <span class="task-text">
+            {{ task.taskText }}
+          </span>
+
+          <button class="delete-task-button">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+          </button>
+        </div>
+      </div>
+
+      <div v-else-if="activeTab == 'active'" class="task-container active-task-container">
+
+      </div>
+
+      <div v-else class=" task-container completed-taks-container">
+
+      </div>
+
+      <div class="taks-container-controller">
+        <h4 class="quant-of-itens-left">
+          5 items left
+        </h4>
+
+        <div class="tab-switcher-container">
+          <button class="tab-switcher--item">
+            All
+          </button>
+
+          <button class="tab-switcher--item">
+            Active
+          </button>
+
+          <button class="tab-switcher--item">
+            Completed
+          </button>
+        </div>
+
+        <button class="clear-completed-task-button">
+          Clear Completed
+        </button>
+      </div>
+    </div>
+  </div>
 
   Todo
 
   <!-- Add dynamic number --> items left
 
   All
-  Active 
+  Active
   Completed
 
   Clear Completed
@@ -29,8 +123,11 @@
   Drag and drop to reorder list
 
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script src="JS/index.js"></script>
 </body>
+
 </html>
