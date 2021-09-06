@@ -179,3 +179,39 @@ background-color: rgba(0, 0, 0, 0.198);
 .delete-task-button:hover {
     transform: rotate(-180deg);
 }
+.taks-container-controller {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
+.quant-of-itens-left {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+.tab-switcher-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.tab-switcher--item {
+    border: none;
+    margin: 0 0.5rem;
+    color: var(--text-color);
+    background-color: transparent;
+    cursor: pointer;
+    border-bottom: 0.25rem solid rgba(255, 255, 255, 0);
+}
+.tab-switcher--item:hover {
+    border-bottom: 0.25rem solid var(--active-tab-border-color);
+}
+
+.clear-completed-task-button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--text-color-opacity-50)
+}
+.clear-completed-task-button:hover {
+    color: var(--text-color);
+}

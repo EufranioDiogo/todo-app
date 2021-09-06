@@ -60,7 +60,7 @@
 
     <div class="activity-container">
       <div v-if="activeTab == 'all'" class="task-container all-task-container">
-        <div v-for="task in taskList" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
             <input type="checkbox" name="" id="" class="do-undo-task-button">
             <div class="radio-ilustrator"></div>
@@ -77,28 +77,54 @@
       </div>
 
       <div v-else-if="activeTab == 'active'" class="task-container active-task-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" v-if="task.isCompleted == false" class="task-element-container">
+          <label for="" class="do-undo-task-button-container">
+            <input type="checkbox" name="" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator"></div>
+          </label>
+          
+          <span class="task-text">
+            {{ task.taskText }}
+          </span>
 
+          <button class="delete-task-button">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+          </button>
+        </div>
       </div>
 
-      <div v-else class=" task-container completed-taks-container">
+      <div v-else class="task-container completed-taks-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" v-if="task.isCompleted == true" class="task-element-container">
+          <label for="" class="do-undo-task-button-container">
+            <input type="checkbox" name="" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator"></div>
+          </label>
+          
+          <span class="task-text">
+            {{ task.taskText }}
+          </span>
 
+          <button class="delete-task-button">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+          </button>
+        </div>
       </div>
 
       <div class="taks-container-controller">
         <h4 class="quant-of-itens-left">
-          5 items left
+          {{quantItems}}
         </h4>
 
         <div class="tab-switcher-container">
-          <button class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item">
             All
           </button>
 
-          <button class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item">
             Active
           </button>
 
-          <button class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item">
             Completed
           </button>
         </div>
