@@ -12,7 +12,7 @@
 - **Motivo**: Diversão para afiar as skills.
 - **Objectivo**: Criar um simples web app de to do list.
 - **Tecnologias Usadas**:  `HTML`, `CSS`, `JS`, `Vue.js`
-- **Link de Acesso**: [click here](https://eufraniodiogo.github.io/todo-app-main)
+- **Link de Acesso**: [click here](https://eufraniodiogo.github.io/todo-app)
 - **Autor / Autores**: Eufránio Diogo
 
 
@@ -24,7 +24,7 @@
 - **Why**: Diversion and to put my skills up.
 - **Goals**: Create a simple web app of todo list.
 - **Used Tecs**: `HTML`, `CSS`, `JS`, `Vue.js`
-- **Access Link**: [click here](https://eufraniodiogo.github.io/todo-app-main)
+- **Access Link**: [click here](https://eufraniodiogo.github.io/todo-app)
 - **Author(s)**: Eufránio Diogo
 
 <h2 id="images">Imagens / Images</h2>
