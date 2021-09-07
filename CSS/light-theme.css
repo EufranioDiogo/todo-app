@@ -8,3 +8,8 @@
     --text-color-opacity-50: rgba(255, 255, 255, 0.486);
     --title-color: rgb(255, 255, 255);
 }
+@media screen and (max-width: 1024px) {
+    :root {
+        --header-background: url('../IMAGES/bg-mobile-light.jpg');
+    }
+}

@@ -111,11 +111,11 @@
       </div>
 
       <div class="taks-container-controller">
-        <h4 class="quant-of-itens-left">
+        <h4 class="task-controller--item quant-of-itens-left">
           {{ (activeTab == 'all' ? quantItems : activeTab == 'active' ? quantActive : activeTab == 'completed' ? quantCompleted : 0) + ' tasks '}}
         </h4>
 
-        <div class="tab-switcher-container">
+        <div class="task-controller--item tab-switcher-container">
           <button @click="changeTab" class="tab-switcher--item" :class="{ 'active-tab' : activeTab == 'all'}">
             All
           </button>
@@ -129,7 +129,7 @@
           </button>
         </div>
 
-        <button @click="clearCompleted" class="clear-completed-task-button">
+        <button @click="clearCompleted" class="task-controller--item clear-completed-task-button">
           Clear Completed
         </button>
       </div>

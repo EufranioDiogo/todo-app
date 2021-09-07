@@ -26,7 +26,7 @@ body {
     width: 35%;
     display: flex;
     flex-direction: column;
-    margin-top: 6.5rem;
+    margin: auto 0;
     position: relative;
 }
 
@@ -146,7 +146,7 @@ background-color: rgba(0, 0, 0, 0.198);
     align-items: flex-start;
     padding: 2rem;
     background-color: var(--element-background-color);
-    margin-top: -10rem;
+    position: relative;
     z-index: 1;
     border-radius: 0.5rem;
 }
@@ -251,4 +251,41 @@ background-color: rgba(0, 0, 0, 0.198);
 }
 .clear-completed-task-button:hover {
     color: var(--text-color);
+}
+@media screen and (min-width: 2000px) {
+    html {
+        font-size: 100%;
+    }
+    .header-container-internal-container {
+        width: 40%;
+    }
+    .activity-container {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .header-container-internal-container {
+        width: 80%;
+    }
+    .activity-container {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header-container-internal-container {
+        width: 92.5%;
+    }
+    .activity-container {
+        width: 92.5%;
+    }
+
+    .taks-container-controller {
+        flex-direction: column;
+        align-items: center;
+    }
+    .task-controller--item {
+        margin: 1rem 0;
+    }
 }
