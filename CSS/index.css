@@ -1,8 +1,8 @@
-
 body {
     background-color: var(--primary-color);
     transition: 0.5s;
 }
+
 #app {
     display: flex;
     justify-content: flex-start;
@@ -35,6 +35,7 @@ body {
     justify-content: space-between;
     margin-bottom: 3.5rem;
 }
+
 .todo-title {
     font-size: 4.8rem;
     color: var(--title-color);
@@ -48,13 +49,16 @@ body {
     border-radius: 50%;
     transition: 0.5s;
 }
+
 .theme-toggle-button:hover {
-background-color: rgba(0, 0, 0, 0.198);
+    background-color: rgba(0, 0, 0, 0.198);
 }
+
 .theme-toggle-button--icon {
     object-fit: cover;
     padding: 0 1.5rem;
 }
+
 .input-container {
     display: flex;
     align-items: center;
@@ -62,6 +66,7 @@ background-color: rgba(0, 0, 0, 0.198);
     padding: 2rem;
     border-radius: 0.5rem
 }
+
 .do-undo-task-button-container {
     display: block;
     position: relative;
@@ -95,6 +100,7 @@ background-color: rgba(0, 0, 0, 0.198);
     height: 50%;
     background-size: cover;
 }*/
+
 .done-task {
     position: absolute;
     width: 100%;
@@ -105,6 +111,7 @@ background-color: rgba(0, 0, 0, 0.198);
     justify-content: center;
     align-items: center;
 }
+
 .done-task::after {
     content: "";
     background-image: url('../IMAGES/icon-check.svg');
@@ -112,7 +119,6 @@ background-color: rgba(0, 0, 0, 0.198);
     height: 50%;
     background-size: cover;
 }
-
 
 .do-undo-task-button:checked {
     z-index: 1;
@@ -134,6 +140,7 @@ background-color: rgba(0, 0, 0, 0.198);
     color: var(--text-color);
     background-color: var(--element-background-color);
 }
+
 .new-task-input-container:focus, .new-task-input-container:active {
     border: none;
     outline: none;
@@ -149,7 +156,9 @@ background-color: rgba(0, 0, 0, 0.198);
     position: relative;
     z-index: 1;
     border-radius: 0.5rem;
+    margin-top: -1rem;
 }
+
 .task-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -157,6 +166,7 @@ background-color: rgba(0, 0, 0, 0.198);
     gap: 1rem 0;
     width: 100%;
 }
+
 .task-element-container {
     display: grid;
     width: 100%;
@@ -164,17 +174,19 @@ background-color: rgba(0, 0, 0, 0.198);
     padding: 1rem 0;
     border: 0.1rem solid rgba(51, 51, 51, 0);
     border-bottom: 0.1rem solid #333;
-    
     padding: 1rem;
     transition: 0.5s;
 }
+
 .task-element-container:hover {
     border: 0.1rem solid #333;
     border-radius: 0.5rem;
 }
+
 .task-element-container .do-undo-task-button-container {
     margin-right: 0rem;
 }
+
 .task-element-container .do-undo-task-button {
     margin-left: 0;
 }
@@ -196,19 +208,23 @@ background-color: rgba(0, 0, 0, 0.198);
     transition: 0.5s;
     cursor: pointer;
 }
+
 .delete-task-button:hover {
     transform: rotate(-180deg);
 }
+
 .taks-container-controller {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin-top: 2rem;
 }
+
 .quant-of-itens-left {
     font-size: 1.4rem;
     color: var(--text-color);
 }
+
 .tab-switcher-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -222,9 +238,11 @@ background-color: rgba(0, 0, 0, 0.198);
     cursor: pointer;
     border-bottom: 0.25rem solid rgba(255, 255, 255, 0);
 }
+
 .tab-switcher--item:hover {
     border-bottom: 0.25rem solid var(--active-tab-border-color);
 }
+
 .active-tab {
     border-bottom: 0.25rem solid var(--active-tab-border-color);
 }
@@ -236,6 +254,7 @@ background-color: rgba(0, 0, 0, 0.198);
     color: var(--text-color);
     position: relative;
 }
+
 .clear-completed-task-button::after {
     content: '';
     position: absolute;
@@ -249,9 +268,24 @@ background-color: rgba(0, 0, 0, 0.198);
 .clear-completed-task-button:hover::after {
     width: 100%;
 }
+
 .clear-completed-task-button:hover {
     color: var(--text-color);
 }
+
+.attribution {
+    font-size: 2rem;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color:rgb(85, 85, 85);
+}
+
+.attribution a {
+    color: hsl(0, 0%, 100%);
+}
+
 @media screen and (min-width: 2000px) {
     html {
         font-size: 100%;
@@ -271,6 +305,9 @@ background-color: rgba(0, 0, 0, 0.198);
     .activity-container {
         width: 80%;
     }
+    .activity-container {
+        margin-top: 2rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -280,12 +317,14 @@ background-color: rgba(0, 0, 0, 0.198);
     .activity-container {
         width: 92.5%;
     }
-
     .taks-container-controller {
         flex-direction: column;
         align-items: center;
     }
     .task-controller--item {
         margin: 1rem 0;
+    }
+    .activity-container {
+        margin-top: 2rem;
     }
 }
