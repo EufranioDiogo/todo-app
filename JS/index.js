@@ -21,14 +21,14 @@ function setWhiteTheme() {
 
     document.querySelector('.theme-file-src').href = 'CSS/light-theme.css';
 
-    document.querySelector('.theme-toggle-button--icon').src = '../IMAGES/icon-moon.svg';
+    document.querySelector('.theme-toggle-button--icon').src = 'IMAGES/icon-moon.svg';
 }
 
 function setDarkTheme() {
     localStorage.setItem('theme', 'dark');
 
     document.querySelector('.theme-file-src').href = 'CSS/dark-theme.css';
-    document.querySelector('.theme-toggle-button--icon').src = '../IMAGES/icon-sun.svg';
+    document.querySelector('.theme-toggle-button--icon').src = 'IMAGES/icon-sun.svg';
 }
 
 
