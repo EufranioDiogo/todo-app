@@ -51,7 +51,7 @@
             <div class="radio-ilustrator"></div>
           </label>
           
-          <input type="text" class="new-task-input-container" placeholder="New task">
+          <input v-model="newTask" type="text" class="new-task-input-container" placeholder="New task" @keyup.enter.trim="addNewTask">
         </div>
         
       </div>
@@ -60,10 +60,10 @@
 
     <div class="activity-container">
       <div v-if="activeTab == 'all'" class="task-container all-task-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
-            <input type="checkbox" name="" id="" class="do-undo-task-button">
-            <div class="radio-ilustrator"></div>
+            <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator" :class="{ 'done-task' : task.isCompleted}"></div>
           </label>
           
           <span class="task-text">
@@ -77,9 +77,9 @@
       </div>
 
       <div v-else-if="activeTab == 'active'" class="task-container active-task-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" v-if="task.isCompleted == false" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" v-if="task.isCompleted == false" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
-            <input type="checkbox" name="" id="" class="do-undo-task-button">
+            <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
             <div class="radio-ilustrator"></div>
           </label>
           
@@ -94,10 +94,10 @@
       </div>
 
       <div v-else class="task-container completed-taks-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus(task.taskId)" v-if="task.isCompleted == true" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" v-if="task.isCompleted == true" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
-            <input type="checkbox" name="" id="" class="do-undo-task-button">
-            <div class="radio-ilustrator"></div>
+            <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
+            <div class="radio-ilustrator" :class="{ 'done-task' : task.isCompleted}"></div>
           </label>
           
           <span class="task-text">
@@ -116,15 +116,15 @@
         </h4>
 
         <div class="tab-switcher-container">
-          <button @click="changeTab" class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item" :class="{ 'active-tab' : activeTab == 'all'}">
             All
           </button>
 
-          <button @click="changeTab" class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item" :class="{ 'active-tab' : activeTab == 'active'}">
             Active
           </button>
 
-          <button @click="changeTab" class="tab-switcher--item">
+          <button @click="changeTab" class="tab-switcher--item" :class="{ 'active-tab' : activeTab == 'completed'}">
             Completed
           </button>
         </div>

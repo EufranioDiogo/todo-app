@@ -1,30 +1,40 @@
+let element = 0;
 const app = new Vue({
     el: '#app',
     data: {
         activeTab: 'all',
         taskList: [
-            {
-                taskId: 0,
-                taskText: 'Alguma coisa',
-                isCompleted: false
-            },
-            {
-                taskId: 1,
-                taskText: 'Comer Funge',
-                isCompleted: true
-            }
         ],
-        quantItems: 0
+        quantItems: 0,
+        totalTasks: 0,
+        newTask: ''
     },
     methods: {
         changeTab: function (e) {
             this.activeTab = e.target.innerText.toLowerCase();
         },
-        switchTaskStatus: function (taskId) {
-            for (let i = 0; i < this.taskList.length; i++) {
+        switchTaskStatus: function (event, taskId) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            let i;
+            for (i = 0; i < this.taskList.length; i++) {
                 if (this.taskList[i].taskId == taskId) {
                     this.taskList[i].isCompleted = !this.taskList[i].isCompleted;
+                    break;
                 }
+            }
+        },
+        clearCompleted: function () {
+            this.taskList.filter((task) => !task.isCompleted);
+        },
+        addNewTask: function () {
+            if (this.newTask != '') {
+                this.taskList.push({
+                    taskId: this.taskList.length,
+                    taskText: this.newTask,
+                    isCompleted: false
+                })
             }
         }
     },
