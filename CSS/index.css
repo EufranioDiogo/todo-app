@@ -1,6 +1,7 @@
 
 body {
-    background-color: var(--primary-color)
+    background-color: var(--primary-color);
+    transition: 0.5s;
 }
 #app {
     display: flex;
@@ -36,7 +37,7 @@ body {
 }
 .todo-title {
     font-size: 4.8rem;
-    color: var(--text-color);
+    color: var(--title-color);
     letter-spacing: 2rem;
 }
 
@@ -232,7 +233,21 @@ background-color: rgba(0, 0, 0, 0.198);
     border: none;
     cursor: pointer;
     background-color: transparent;
-    color: var(--text-color-opacity-50)
+    color: var(--text-color);
+    position: relative;
+}
+.clear-completed-task-button::after {
+    content: '';
+    position: absolute;
+    bottom: -0.1rem;
+    left: 0;
+    height: 0.2rem;
+    width: 0;
+    background-color: var(--active-tab-border-color);
+}
+
+.clear-completed-task-button:hover::after {
+    width: 100%;
 }
 .clear-completed-task-button:hover {
     color: var(--text-color);

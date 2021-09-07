@@ -12,7 +12,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="CSS/universal.css">
-  <link rel="stylesheet" href="CSS/dark-theme.css">
+  <link class="theme-file-src" rel="stylesheet" href="CSS/dark-theme.css">
   <link rel="stylesheet" href="CSS/index.css">
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -40,13 +40,13 @@
         <div class="header-container--top">
           <h1 class="todo-title">TODO</h1>
   
-          <button class="theme-toggle-button">
+          <button @click="changeTheme" class="theme-toggle-button">
             <img src="IMAGES/icon-sun.svg" alt="" class="theme-toggle-button--icon">
           </button>
         </div>
   
         <div class="input-container">
-          <label for="" class="do-undo-task-button-container">
+          <label @click="addNewTask"  for="" class="do-undo-task-button-container">
             <input type="checkbox" name="ola" id="" class="do-undo-task-button">
             <div class="radio-ilustrator"></div>
           </label>
@@ -60,7 +60,7 @@
 
     <div class="activity-container">
       <div v-if="activeTab == 'all'" class="task-container all-task-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId"  class="task-element-container">
           <label for="" class="do-undo-task-button-container">
             <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
             <div class="radio-ilustrator" :class="{ 'done-task' : task.isCompleted}"></div>
@@ -71,13 +71,13 @@
           </span>
 
           <button class="delete-task-button">
-            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon" @click="deleteTask(task.taskId)">
           </button>
         </div>
       </div>
 
       <div v-else-if="activeTab == 'active'" class="task-container active-task-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" v-if="task.isCompleted == false" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" v-if="task.isCompleted == false" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
             <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
             <div class="radio-ilustrator"></div>
@@ -88,13 +88,13 @@
           </span>
 
           <button class="delete-task-button">
-            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon" @click="deleteTask(task.taskId)">
           </button>
         </div>
       </div>
 
       <div v-else class="task-container completed-taks-container">
-        <div v-for="task in taskList" :id="task.taskId" @click="switchTaskStatus($event, task.taskId)" v-if="task.isCompleted == true" class="task-element-container">
+        <div v-for="task in taskList" :id="task.taskId" v-if="task.isCompleted == true" class="task-element-container">
           <label for="" class="do-undo-task-button-container">
             <input @click="switchTaskStatus($event, task.taskId)" type="checkbox" name="" id="" class="do-undo-task-button">
             <div class="radio-ilustrator" :class="{ 'done-task' : task.isCompleted}"></div>
@@ -105,14 +105,14 @@
           </span>
 
           <button class="delete-task-button">
-            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon">
+            <img src="IMAGES/icon-cross.svg" alt="" class="delete-task-button--icon" @click="deleteTask(task.taskId)">
           </button>
         </div>
       </div>
 
       <div class="taks-container-controller">
         <h4 class="quant-of-itens-left">
-          {{quantItems}}
+          {{ (activeTab == 'all' ? quantItems : activeTab == 'active' ? quantActive : activeTab == 'completed' ? quantCompleted : 0) + ' tasks '}}
         </h4>
 
         <div class="tab-switcher-container">
@@ -129,24 +129,12 @@
           </button>
         </div>
 
-        <button class="clear-completed-task-button">
+        <button @click="clearCompleted" class="clear-completed-task-button">
           Clear Completed
         </button>
       </div>
     </div>
   </div>
-
-  Todo
-
-  <!-- Add dynamic number --> items left
-
-  All
-  Active
-  Completed
-
-  Clear Completed
-
-  Drag and drop to reorder list
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.

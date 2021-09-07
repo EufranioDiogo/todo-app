@@ -1,0 +1,10 @@
+:root {
+    --primary-color:  hsl(233, 11%, 84%);
+    --header-background: url('../IMAGES/bg-desktop-light.jpg');
+    --text-color: hsl(235, 19%, 35%);
+    --element-background-color:  hsl(0, 0%, 98%);
+    --linear-gradient: linear-gradient(to right,hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    --active-tab-border-color: hsl(204, 100%, 44%);
+    --text-color-opacity-50: rgba(255, 255, 255, 0.486);
+    --title-color: rgb(255, 255, 255);
+}
